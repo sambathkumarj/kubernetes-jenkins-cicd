@@ -4,6 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+		Ku
 	}
 
 	stages {
@@ -25,6 +26,14 @@ pipeline{
 
 			steps {
 				sh 'docker push sambathkumarj/jenkink8scicd:latest'
+			}
+		}
+
+		stage('Deploy to Kubernetes'){
+			steps{
+				script {
+					kubernetesDeploy(configs: "pod.yaml, svc.yaml,secret.yaml ", kubeconfigId: "Kube-config-k8s")
+				}
 			}
 		}
 	}
