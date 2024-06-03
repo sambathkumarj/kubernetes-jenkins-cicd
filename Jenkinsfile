@@ -10,7 +10,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t sambathkumarj/jenkinargocd:latest .'
+				sh 'docker build -t sambathkumarj/jenkink8scicd:latest .
 			}
 		}
 
@@ -24,7 +24,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push sambathkumarj/jenkinargocd:latest'
+				sh 'docker push sambathkumarj/jenkink8scicd:latest'
 			}
 		}
 	}
