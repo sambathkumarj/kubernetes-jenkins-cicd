@@ -10,7 +10,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t sambathkumarj/jenkink8scicd:latest .
+				sh 'docker build -t sambathkumarj/jenkink8scicd:latest .'
 			}
 		}
 
