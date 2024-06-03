@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: kube-jenkin-cicd
+  name: kube-jenkin-cicd
+spec:
+  containers:
+  - image: docker.io/sambathkumarj/jenkink8scicd
+    name: kube-jenkin-cicd
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  imagePullSecrets:
+     - name: dockerhub
+status: {}

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kube-jenkin-cicd
+  name: kube-jenkin-cicd
+spec:
+  ports:
+  - name: kube-jenkin-cicd
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: kube-jenkin-cicd
+  type: NodePort
+status:
+  loadBalancer: {}
