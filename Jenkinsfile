@@ -10,7 +10,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t sambathkumarj/jenkink8scicd:latest .'
+				sh 'docker build -t sambathkumarj/kube-jenkin-cicd:latest .'
 			}
 		}
 
@@ -24,7 +24,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push sambathkumarj/jenkink8scicd:latest'
+				sh 'docker push sambathkumarj/kube-jenkin-cicd:latest'
 			}
 		}
 
