@@ -3,12 +3,12 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: kube-jenkin-cicd
-  name: kube-jenkin-cicd
+    run: kube-jenkin
+  name: kube-jenkin
 spec:
   containers:
   - image: docker.io/sambathkumarj/kube-jenkin-cicd
-    name: kube-jenkin-cicd
+    name: kube-jenkin
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
