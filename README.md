@@ -102,7 +102,7 @@ After the initial setup, you can install necessary plugins like Git, Docker, and
 2. Docker Plugin: Similarly, search for and install the "Docker plugin".
 
 3. Kubernetes Plugin: Search for and install the "Kubernetes plugin".
-4. 
+   
 # Step 9: Configure Jenkins
 
 1.  Global Tool Configuration:
@@ -144,11 +144,14 @@ Create the Multi-Branch Pipeline to deploy workflow;
 2. Triggering Jenkins Job: An event in the Git repository, such as a push or pull request, triggers a corresponding Jenkins job. This can be configured using plugins like the Git plugin or webhooks provided by the Git hosting platform.
      
 3. Jenkins Fetches Code: The triggered Jenkins job initiates by cloning the code from the Git repository using the provided URL and credentials.
+
+   ![git_repo_cred](https://github.com/sambathkumarj/kubernetes-jenkins-cicd/assets/42794636/8e3ff712-2bcb-4310-bccf-e2630184327b)
     
 4. Building Docker Image: Jenkins executes the commands specified in a Dockerfile (a text file defining the container image build process).
 
 The Dockerfile typically includes steps to:
 • Define a base image (e.g., Node.js image for a web application)
+
 • Copy the application code from the Git repository into the container
 • Install dependencies (e.g., using npm install or apt-get install)
 • Expose the application's port (e.g., EXPOSE 8080 for a web server running on port 8080)
@@ -195,6 +198,9 @@ microk8s kubectl create svc nodeport kube-jenkin-cicd --tcp=80:80 --dry-run=clie
 Github -> github (Mentioned while creating Multi-branch Pipeline)
 Docker-Registry ->  dockerhub
 Kubernetes-Cluster -> Kube-config-k8s (Secret file - credential)
+
+![cred_store](https://github.com/sambathkumarj/kubernetes-jenkins-cicd/assets/42794636/9844ff9e-bd84-4a48-9776-d3072eb7abc4)
+
 
 # Job Pipeline (Groovy Syntax - Multibranch Pipeline)
 
@@ -244,6 +250,10 @@ pipeline{
 
 ```
 
+![project_success_2](https://github.com/sambathkumarj/kubernetes-jenkins-cicd/assets/42794636/1ddbd705-6f17-4d47-bf7e-672f08ee5fb0)
+
+
+
 # Key Points and Benefits
 
 • Repeatable Builds: Jenkins ensures consistent build environments across different machines.
@@ -252,8 +262,16 @@ pipeline{
 • Scalability: Kubernetes facilitates scaling applications up or down based on resource demands.
 • Streamlined Workflow: This integration empowers developers to focus on coding while automation handles the build, test, and deployment process.
 
+![k8s_res](https://github.com/sambathkumarj/kubernetes-jenkins-cicd/assets/42794636/3093b2cb-7afc-4d6a-9912-c95c02cac8df)
+
+
+
 # Additional Considerations
 
 • Security: Securely store Git credentials and Docker registry access in Jenkins.
 • Version Control: Implement versioning in Docker images to track changes and facilitate rollbacks.
 • Monitoring: Monitor deployed applications in Kubernetes for performance and resource usage.
+
+![output](https://github.com/sambathkumarj/kubernetes-jenkins-cicd/assets/42794636/df135313-43f6-497d-85d6-1baac4d81e0c)
+
+
