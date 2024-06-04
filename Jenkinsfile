@@ -30,10 +30,12 @@ pipeline{
 
 		stage('Deploy to Kubernetes'){
 			steps{
-				script {
-					kubernetesDeploy(configs: "pod.yaml, svc.yaml,secret.yaml ", kubeconfigId: "Kube-config-k8s")
+				withKubeConfig([credentialsId: 'Kube-config-k8s']) {
+					sh 'kubectl apply -f pod.yaml'
+					sh 'kubectl apply -f svc.yaml'
+					sh 'kubectl apply -f secret.yaml'
 				}
 			}
-		}
+		}	
 	}
 }
