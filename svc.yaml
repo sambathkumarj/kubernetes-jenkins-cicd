@@ -3,16 +3,16 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: kube-jenkin-cicd
-  name: kube-jenkin-cicd
+    app: kube-jenkin
+  name: kube-jenkin
 spec:
   ports:
-  - name: kube-jenkin-cicd
+  - name: kube-jenkin
     port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    run: kube-jenkin-cicd
+    run: kube-jenkin
   type: NodePort
 status:
   loadBalancer: {}
