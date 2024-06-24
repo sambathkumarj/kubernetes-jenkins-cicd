@@ -30,7 +30,7 @@ pipeline{
 
 		stage('Deploy to Kubernetes'){
 			steps{
-				withKubeConfig([credentialsId: 'Kube-config-k8s-aether']) {
+				withKubeConfig([credentialsId: 'Aether-app-jenkin-test']) {
 					sh 'kubectl apply -f pod.yaml'
 					sh 'kubectl apply -f svc.yaml'
 					sh 'kubectl apply -f secret.yaml'
