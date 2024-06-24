@@ -10,7 +10,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t sambathkumarj/kube-jenkin-cicd:latest .'
+				sh 'docker build -t sambathkumarj/kube-jenkin-cicd:aether .'
 			}
 		}
 
@@ -24,13 +24,13 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push sambathkumarj/kube-jenkin-cicd:latest'
+				sh 'docker push sambathkumarj/kube-jenkin-cicd:aether'
 			}
 		}
 
 		stage('Deploy to Kubernetes'){
 			steps{
-				withKubeConfig([credentialsId: 'Kube-config-k8s']) {
+				withKubeConfig([credentialsId: 'Kube-config-k8s-aether']) {
 					sh 'kubectl apply -f pod.yaml'
 					sh 'kubectl apply -f svc.yaml'
 					sh 'kubectl apply -f secret.yaml'
